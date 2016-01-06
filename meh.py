@@ -16,7 +16,7 @@ def meh():
 
 def push(item, item_url):
     token = '' # Enter your api_key here
-    user_key = 'KskmehPrjtgoEixcUlF3zspzNaPXU7'
+    user_key = 'XXXXXXXXXX'
     message = item+'\n'+item_url
     post_data = 'token='+token+'&user='+user_key+'&message='+message
     post_data = str.encode(post_data)
