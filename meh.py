@@ -1,12 +1,13 @@
 #!/usr/bin/python
 __author__ = 'Benny'
 import urllib.request
+import urllib.parse
 import ssl
 import json
 
 
 def getConfigs():
-    with open("config.json", "r") as f:
+    with open("/home/jbg/dev/deals/meh.comChecker/config.json", "r") as f:
         params = json.load(f)
     f.close()
     return params
@@ -25,6 +26,7 @@ def push(item, item_url, params):
     token = params["pushover_api"]
     user_key = params["pushover_user"]
     message = item+'\n'+item_url
+    message = urllib.parse.quote_plus(message)
     post_data = 'token='+token+'&user='+user_key+'&message='+message
     post_data = str.encode(post_data)
     push_url = 'https://api.pushover.net/1/messages.json'
